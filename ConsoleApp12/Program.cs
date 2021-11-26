@@ -9,14 +9,17 @@ namespace ConsoleApp12
     {
         static void Main(string[] args)
         {
-            double sum = 0;
+            // declarações e criação de lista
+            double somaTotal = 0;
             List<Funcionario> list = new List<Funcionario>();
 
+            //recebe o n* de funcionarios
             Console.WriteLine("Insira o número de funcionários:");
             int n = int.Parse(Console.ReadLine());
 
             for (int i = 1; i <= n; i++)
             {
+                //se for terceirizado, cria um na classe terceirizada.
                 Console.WriteLine("Funcionário terceirizado? (s/n)");
                 char tipo = char.Parse(Console.ReadLine());
 
@@ -31,6 +34,7 @@ namespace ConsoleApp12
                     double bonus = 110;
                     list.Add(new Terceirizado(nome, horas, valor, bonus));
                 }
+                //se não for terceirizado, classe própria
                 else if (tipo == 'n')
                 {
                     Console.WriteLine("Nome do funcionário:");
@@ -45,17 +49,19 @@ namespace ConsoleApp12
 
 
             }
-
+            //mostra o salário de todo funcionário.
             Console.WriteLine("Salários:");
             foreach (Funcionario func in list)
             {
                 double salario = func.Salario();
-                Console.WriteLine(func.Nome + ": $ " + salario.ToString("F2", CultureInfo.InvariantCulture));
-                sum += salario;
+                
+                Console.WriteLine(func.Nome + ": R$" + salario.ToString(CultureInfo.InvariantCulture));
+                somaTotal += salario;
             }
-
+            //mostra o preço total de todos salários.
             Console.WriteLine();
-            Console.WriteLine("TOTAL TAXES: $ " + sum.ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine();
+            Console.WriteLine("Preço total: R$" + somaTotal.ToString(CultureInfo.InvariantCulture));
         }
     }
 }

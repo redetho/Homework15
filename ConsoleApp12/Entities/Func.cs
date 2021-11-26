@@ -2,14 +2,11 @@
 {
     abstract class Funcionario
     {
+        //guarda a informação de cada funcionário.
         public string Nome { get; set; }
         public double SalarioTotal { get; set; }
         public double Horas { get; set; }
         public double Valor { get; set; }
-
-        public Funcionario()
-        {
-        }
 
         protected Funcionario(string nome, double salarioTotal, double valor)
         {

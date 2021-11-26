@@ -11,6 +11,7 @@
             Valor = valor;
         }
 
+        //calcula e retorna o salário de um funcionário próprio.
         public override double Salario()
         {
             SalarioTotal = Horas * Valor;
